@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: bankflow-postgres
+    environment:
+      POSTGRES_DB: bankflow
+      POSTGRES_USER: bankflow
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "127.0.0.1:5440:5432"
+    volumes:
+      - bankflow_data:/var/lib/postgresql/data
+
+volumes:
+  bankflow_data:
